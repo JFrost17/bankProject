@@ -1,0 +1,26 @@
+<h3>Bank Account </h3>
+<h3>{{accountString}}</h3>
+
+<form method="POST" action="/">
+    {%csrf_token%}
+    {{form}}
+    <input type="submit" name="Deposit Money">
+</form>
+<form method="POST" action="/">
+    {%csrf_token%}
+    {{formTwo}}
+    <input type="submit" name="Withdrawl Money">
+</form>
+
+<h3>Deposit History</h3>
+{% for deposit in deposits %}
+    <div>
+        <p>{{deposit}}</p>
+    </div>
+{% endfor %}
+<h3>Withdrawl History</h3>
+{% for withdrawl in withdrawls %}
+    <div>
+        <p>{{withdrawl}}</p>
+    </div>
+{% endfor %}
