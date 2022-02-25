@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h4 style="text-align: center">Login</h4>
+    {% if form.errors %}
+        <p>Invalid login! Please try again.</p>
+    {% endif %}
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{ form.username.label_tag }}
+        {{ form.username }}
+
+        {{ form.password.label_tag }}
+        {{ form.password }}
+
+        <input type="submit" value="Login">
+    </form>
+{% endblock content %}

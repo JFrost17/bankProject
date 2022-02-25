@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_content %}
+    <script type="text/javascript" src="{% static "js/validateForms.js" %}"></script>
+{% endblock head_content %}
+
+{% block content %}
+<h3>Bank Account</h3>
+<h3>Account Balance: ${{ accountBalance | stringformat:".2f"}}</h3>
+
+<form method="POST" action="/" onsubmit="validateDeposit()">
+    {%csrf_token%}
+    {{form}}
+    <input type="submit" name="Deposit Money">
+</form>
+<form method="POST" action="/" onsubmit="validateWithdraw()">
+    {%csrf_token%}
+    {{formTwo}}
+    <input type="submit" name="Withdrawl Money">
+</form>
+
+<h3>Deposit History</h3>
+{% for deposit in deposits %}
+    <div>
+        {% if deposit.user == request.user %}
+            <p>{{ deposit }}</p>
+        {% endif %}
+    </div>
+{% endfor %}
+<h3>Withdrawl History</h3>
+{% for withdrawl in withdrawls %}
+    <div>
+        {% if withdrawl.user == request.user %}
+            <p>{{ withdrawl }}</p>
+        {% endif %}
+    </div>
+{% endfor %}
+{% endblock content %}
