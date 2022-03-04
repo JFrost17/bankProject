@@ -36,4 +36,7 @@
         {% endif %}
     </div>
 {% endfor %}
+    <form action="{% url 'login' %}">
+        <input type="submit" value="logout" />
+    </form>
 {% endblock content %}
