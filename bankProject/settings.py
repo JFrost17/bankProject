@@ -27,7 +27,7 @@ SECRET_KEY = 't#v1dv(eh8d6)ub$bw785k6ceapv+z2fvs%3!805der2f1t-)9'
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver', 'https://evening-anchorage-27251.herokuapp.com/',
-        'aqueous-plateau-41707.herokuapp.com',]
+        'aqueous-plateau-41707.herokuapp.com',"bankproject1.herokuapp.com"]
 
 
 # Application definition
